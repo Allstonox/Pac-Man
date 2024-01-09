@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', system-ui;
+    margin: 0px;
+    color: white;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+    background: grey;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#start-game-wrapper, #end-game-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    height: 40%;
+    width: 30%;
+    gap: 1.5rem;
+    border-radius: 1rem;
+    border: solid 2px white;
+}
+
+#end-game-wrapper {
+    visibility: hidden;
+}
+
+#start-game-wrapper h1 {
+    font-size: 5rem;
+    color: yellow;
+}
+
+#end-game-wrapper h1 {
+    font-size: 3rem;
+    color: white;
+}
+
+#start-game-wrapper button, #end-game-wrapper button {
+    width: 40%;
+    height: 50px;
+    background: grey;
+    cursor: pointer;
+}
+
+#lives-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    height: 40%;
+    width: 30%;
+    gap: 1.5rem;
+    border-radius: 1rem;
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible !important;
+}
