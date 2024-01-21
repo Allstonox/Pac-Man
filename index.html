@@ -13,6 +13,10 @@
 </head>
 
 <body>
+    <div class="display-wrapper" id="scores-display">
+        <div id="score-wrapper">Score:</div>
+        <div id="high-score-wrapper">High-Score:</div>
+    </div>
     <canvas></canvas>
     <div id="start-game-wrapper">
         <h1>PACMAN</h1>
@@ -22,9 +26,17 @@
     <div id="lives-wrapper">
         <h3>2 lives left!</h3>
     </div>
+    <div id="level-wrapper">
+        <h3>Level 1</h3>
+    </div>
     <div id="end-game-wrapper">
         <h1>GAME OVER</h1>
         <button onclick="restartGame()">RESTART GAME</button>
+    </div>
+    <div id="player-lives-display" class="display-wrapper">
+        <div class="player-life"></div>
+        <div class="player-life"></div>
+        <div class="player-life"></div>
     </div>
     <script src="utils.js"></script>
     <script src="Classes/GridSpace.js"></script>

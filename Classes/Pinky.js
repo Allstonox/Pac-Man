@@ -1,6 +1,6 @@
 class Pinky extends Ghost {
-    constructor({ position, radius, currentTile, color = {red: 255, green: 100, blue: 203}}) {
-        super({ position, radius, currentTile, color})
+    constructor({ position, radius, currentTile, animations, color = {red: 255, green: 100, blue: 203}}) {
+        super({ position, radius, currentTile, animations, color})
         this.homeTiles =[grid[1][1], grid[1][12], grid[8][12], grid[8][1]]
     }
 
@@ -12,6 +12,12 @@ class Pinky extends Ghost {
         }
         else if(this.mode === 'scatter') {
             this.scatter();
+        }
+        else if(this.mode === 'fleeing') {
+            this.flee();
+        }
+        else if(this.mode === 'respawning') {
+            this.returnHome();
         }
         this.move();
         this.show();

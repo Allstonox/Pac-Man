@@ -1,6 +1,6 @@
 class Inky extends Ghost {
-    constructor({ position, radius, currentTile, color = {red: 0, green: 200, blue: 203}}) {
-        super({ position, radius, currentTile, color})
+    constructor({ position, radius, currentTile, animations, color = {red: 0, green: 200, blue: 203}}) {
+        super({ position, radius, currentTile, animations, color})
         this.homeTiles =[grid[29][26], grid[29][15], grid[20][26], grid[20][15]];
     }
 
@@ -12,6 +12,12 @@ class Inky extends Ghost {
         }
         else if(this.mode === 'scatter') {
             this.scatter();
+        }
+        else if(this.mode === 'fleeing') {
+            this.flee();
+        }
+        else if(this.mode === 'respawning') {
+            this.returnHome();
         }
         this.move();
         this.show();
@@ -29,14 +35,14 @@ class Inky extends Ghost {
         } 
         else if(player.controls.direction === 'down') {
             for(let i = blinkyDist; i >= 0; i--) {
-                if(player.currentTile.index.row + i < rows - 1) {
+                if(player.currentTile.index.row + i <= rows - 1) {
                     if(!grid[player.currentTile.index.row + i][player.currentTile.index.column].wall) return grid[player.currentTile.index.row + i][player.currentTile.index.column];
                 }
             }
         } 
         else if(player.controls.direction === 'right') {
             for(let i = blinkyDist; i >= 0; i--) {
-                if(player.currentTile.index.column + i < columns - 1) {
+                if(player.currentTile.index.column + i <= columns - 1) {
                     if(!grid[player.currentTile.index.row][player.currentTile.index.column + i].wall) return grid[player.currentTile.index.row][player.currentTile.index.column + i];
                 }
             }
